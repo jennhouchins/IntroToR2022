@@ -343,6 +343,15 @@ vignette("multi")
 -   Google
 -   R office hours (Tuesdays at noon)
 
+## Next R Lunch and Learn
+<br />
+<br />
+**Data Lifecyle Management in R**
+
+Kimkinyona Fox and Jennifer Houchins
+
+November 16, 2022
+
 ## About this Presentation
 
 This presentation was created and delivered using:
