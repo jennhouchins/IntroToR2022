@@ -19,9 +19,13 @@ format:
     center-title-slide: true
     logo: img/WestEd.png
     footer: "<a href='https://wested.org'>wested.org</a>"
+editor: 
+  markdown: 
+    wrap: 80
 ---
 
-## Why Learn R? 
+## Why Learn R?
+
 ```{r}
 #| echo: false
 #| eval: false
@@ -29,116 +33,206 @@ library(reprex)
 
 ```
 
-- **<span style='color: red;'>It's FREE</span>**
-- It's powerful
-  + Data Cleaning
-  + Visualizing Data
-- Data Documentation
-- Widely used with a large, helpful community
-- **<span style='color: red;'>Produces reproducible research!</span>**
+-   [**It's FREE**]{style="color: red;"}
+-   It's powerful
+    -   Data Cleaning
+    -   Visualizing Data
+-   Data Documentation
+-   Widely used with a large, helpful community
+-   [**Produces reproducible research!**]{style="color: red;"}
 
 ## Some notes for today... {.smaller}
 
 After today, you will not know R.
 
-- But you will have a foundation to start learning
+-   But you will have a foundation to start learning
 
 Learning R will take time
 
-- Error messages and debugging are part of the process
-- Persistence helps
-- Be kind to yourself
+-   Error messages and debugging are part of the process
+-   Persistence helps
+-   Be kind to yourself
 
 Now is a great time to learn!
 
-- Lots of support within the organization
-- Open door policy: You have a support network if you get stuck 
+-   Lots of support within the organization
+-   Open door policy: You have a support network if you get stuck
 
 ## What we'll do today...
 
-- Tour the environment
-- Go over R basics
-  + Variables
-  + Packages
-  + Functions
-  + Reading the documentation
-- Assign some homework for the next R training session
-
+-   Tour the environment
+-   Go over R basics
+    -   Variables
+    -   Packages
+    -   Functions
+    -   Reading the documentation
+-   Assign some homework for the next R training session
 
 ## What is it?
 
-:::: {columns}
+::: {columns}
 ::: {.column width="55%"}
-<br />
-R is a _Programming Language_
-<br />
-<br />
-<br />
-<br />
-R Studio is an _Integrated Development Environment (IDE)_
+<br /> R is a *Programming Language* <br /> <br /> <br /> <br /> R Studio is an
+*Integrated Development Environment (IDE)*
 :::
+
 ::: {.column width="40%"}
-<br />
-![](img/Rlogo.png){width=113}
-<br />
-<br />
-![](img/RStudio_Logo.png){width=310}
-
-
+<br /> ![](img/Rlogo.png){width="113"} <br /> <br />
+![](img/RStudio_Logo.png){width="310"}
 :::
-::::
+:::
 
 ## A brief tour of RStudio
-::: {.fragment}
-![](img/RStudio_panes.png){.absolute top=100 left=20 width="100%"}
+
+::: fragment
+![](img/RStudio_panes.png){.absolute top="100" left="20" width="100%"}
 :::
 
 ::: {.fragment .fade-in-then-out}
-![](img/RStudio_script.png){.absolute top=100 left=20 width="100%"}
+![](img/RStudio_script.png){.absolute top="100" left="20" width="100%"}
 :::
 
 ::: {.fragment .fade-in-then-out}
-![](img/RStudio_console.png){.absolute top=100 left=20 width="100%"}
+![](img/RStudio_console.png){.absolute top="100" left="20" width="100%"}
 :::
 
 ::: {.fragment .fade-in-then-out}
-![](img/RStudio_environment.png){.absolute top=100 left=20 width="100%"}
+![](img/RStudio_environment.png){.absolute top="100" left="20" width="100%"}
 :::
+
 ::: {.fragment .fade-in}
-![](img/RStudio_output.png){.absolute top=100 left=20 width="100%"}
+![](img/RStudio_output.png){.absolute top="100" left="20" width="100%"}
 :::
 
 ## Setting up your environment {.smaller}
 
-:::{.nonincremental}
-- Deactivate any automatic data saves
-  + Go to Preferences > General
-  + Uncheck “Restore .RData into workspace”
-  + Set “Save workspace to .RData . . .” to Never
-  + Consider Unchecking “Always save history”
-
-- Set up a Margin (recommended 80 Characters)
-  + Go to Preferences > Code > Display
-  + Check “Show Margin”
-  + For “Margin column” enter “80”
+::: nonincremental
+-   Deactivate any automatic data saves
+    -   Go to Preferences \> General
+    -   Uncheck "Restore .RData into workspace"
+    -   Set "Save workspace to .RData . . ." to Never
+    -   Consider Unchecking "Always save history"
+-   Set up a Margin (recommended 80 Characters)
+    -   Go to Preferences \> Code \> Display
+    -   Check "Show Margin"
+    -   For "Margin column" enter "80"
 :::
 
 ## How things relate in R
-::: {.fragment}
-![](img/relate1.png){.absolute top=100 left=150}
+
+::: fragment
+![](img/relate1.png){.absolute top="100" left="150"}
 :::
 
 ::: {.fragment .fade-in-then-out}
-![](img/relate2.png){.absolute top=100 left=150}
+![](img/relate2.png){.absolute top="100" left="150"}
 :::
 
 ::: {.fragment .fade-in}
-![](img/relate3.png){.absolute top=100 left=150}
+![](img/relate3.png){.absolute top="100" left="150"}
 :::
 
+## Objects and Variables
+
+::: callout-tip
+## What are Variables?
+
+"In every computer language variables provide a means of accessing the data
+stored in memory. R does not provide direct access to the computer's memory but
+rather provides a number of specialized data structures we will refer to as
+objects. These objects are referred to through symbols or variables. In R,
+however, the symbols are themselves objects and can be manipulated in the same
+way as any other object. This is different from many other languages and has
+wide ranging effects." - R Language Manual
+:::
+
+## Objects {.smaller}
+
+-   Object - A specialized data structure that holds values.
+-   Types of Objects:
+    -   Vectors - Contiguous cells containing data of the same data type
+        -   Data types limited to (logical, integer, double, complex, character,
+            raw)
+    -   Lists - A special type of vector where each element can be different
+    -   Matrix - a two dimensional object that can hold values of the same data
+        type.
+        -   Like a 2-D Vector
+    -   Data Frame - a list of vectors, factors, and/or matrices all having the
+        same length
+    -   Functions - Coming up
+
+## Data Types
+
+-   Data Types
+    -   Numeric -- integer, double
+    -   Character -- letters and words
+    -   Logical -- True or False, 0 or 1
+    -   Factor -- Ordered or non-ordered categories. Finite number of levels.
+    -   NA -- Missing, Empty, Absence of Data
+
+## Assigning Values to Objects
+
+-   Operators:
+    -   +,-,/,\*
+    -   == , \<=, \>=
+    -   \<-
+-   Assigning Values to Objects:
+
+```{r}
+#| echo: true
+#| cache: true
+x <- 5
+y <- 3
+z <- "a"
+vect.1 <- c(2,4,5,7)
+vect.2 <- c("a","b","c","d")
+```
+
+Operators can be used on values or on objects
+
+```{r}
+#| echo: true
+10 + 7
+x + y
+```
+
+## Assigning Values to Objects (cont.)
+
+The type of value held in an object affects what can be done with that object
+
+```{r}
+#| echo: true
+#| error: true
+z + y
+
+mean(vect.1)
+mean(vect.2)
+```
+
+The value held in an object can be changed and you can copy the value from one
+object to another
+
+```{r}
+#| echo: true
+z <- x
+x <- 7
+```
+
+## Quick Check
+
+What do you think the results of the following code will be?
+
+```{r}
+#| echo: true
+z + y
+x + y
+```
+
 ## Functions
-- Most functions will come as part of packages (like `mean` mentioned previously)
-- Or, you can write your own
+
+-   Most functions will come as part of packages (like `mean` mentioned
+    previously)
+-   Or, you can write your own
 
 ```{r}
 #| echo: true
@@ -150,6 +244,7 @@ minusThree <- function(x){
 ```
 
 <br/>
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -158,7 +253,9 @@ minusThree(10)
 ```
 
 ## Functions (but wait, there's more)
+
 <br/>
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -173,90 +270,92 @@ minusTwoNumbers(y = 2, x = 3)
 minusTwoNumbers(x = 3, y = 2)
 ```
 
-
 ## Getting help (R Documentation)
-:::: {.columns}
 
+::: columns
 ::: {.column width="50%"}
-<br/>
-Need help?
-<br/><br/>
-Try typing ```?ggplot``` in your console. 
+<br/> Need help? <br/><br/> Try typing `?ggplot` in your console.
 :::
 
-:::{.column width="45%"}
+::: {.column width="45%"}
 ![](img/help.png){width="125%"}
 :::
+:::
 
-::::
+::: notes
+Did you get a message that said No documentation for 'ggplot' in specified
+packages and libraries: you could try '??ggplot'?
 
-:::{.notes}
-Did you get a message that said No documentation for ‘ggplot’ in specified packages and libraries: you could try ‘??ggplot’?
-
-Then you may need to install and load the ggplot2 package. This is a good example of a situation you may encounter frequently.
+Then you may need to install and load the ggplot2 package. This is a good
+example of a situation you may encounter frequently.
 :::
 
 ## Other ways to get documentation
-<br/>
-You can ask for help on packages, not just functions:
+
+<br/> You can ask for help on packages, not just functions:
+
 ```{r}
 #| echo: true
 #| eval: false
 help(package="utils")
 ```
-<br/><br/>
-These pieces of documentation are called vignettes. You can also use the vignette function to access them.
+
+<br/><br/> These pieces of documentation are called vignettes. You can also use
+the vignette function to access them.
+
 ```{r}
 #| echo: true
 #| eval: false
 vignette("multi")
 ```
 
-
 ## Helpful R Resources
 
-- [R for Data Science](https://r4ds.had.co.nz/)
-- [Data Science in Education using R](https://datascienceineducation.com/)
-- [R Studio Education Primers](https://rstudio.cloud/learn/primers)
-- [R Studio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
-- [Data Management in Large-Scale Education Research](https://datamgmtinedresearch.com/)
+-   [R for Data Science](https://r4ds.had.co.nz/)
+-   [Data Science in Education using R](https://datascienceineducation.com/)
+-   [R Studio Education Primers](https://rstudio.cloud/learn/primers)
+-   [R Studio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
+-   [Data Management in Large-Scale Education
+    Research](https://datamgmtinedresearch.com/)
+- [LASER Institute](https://github.com/laser-institute)
 
 ## Specific recommendations
-- [R for Data Science](https://r4ds.had.co.nz/)
-  + Workflow:Coding Basics Chapter
-- [Data Science in Education using R](https://datascienceineducation.com/)
-  + Foundational Skills 
-  + Walkthrough 1: The education data science pipeline with online science class data
-- [R Studio Education Primers](https://rstudio.cloud/learn/primers)
+
+-   [R for Data Science](https://r4ds.had.co.nz/)
+    -   Workflow:Coding Basics Chapter
+-   [Data Science in Education using R](https://datascienceineducation.com/)
+    -   Foundational Skills
+    -   Walkthrough 1: The education data science pipeline with online science
+        class data
+-   [R Studio Education Primers](https://rstudio.cloud/learn/primers)
 
 ## Want to Practice?
 
-- Try this Independent Practice:
-  + [LASER Institute Getting Started Exercise](https://laser-institute.github.io/laser-getting-started/Independent-Practice.html)
-- Using this dataset: 
-  + "Right-click" \+ "save link as" to download
-  + [sci-online-classes.csv](data/sci-online-classes.csv)
+-   Try this Independent Practice:
+    -   [LASER Institute Getting Started
+        Exercise](https://laser-institute.github.io/laser-getting-started/Independent-Practice.html)
+-   Using this dataset:
+    -   "Right-click" + "save link as" to download
+    -   [sci-online-classes.csv](data/sci-online-classes.csv)
 
 ## Additional Help
 
-- Google
-- R office hours (Tuesdays at noon)
+-   Google
+-   R office hours (Tuesdays at noon)
 
 ## About this Presentation
 
 This presentation was created and delivered using:
 
-- R Studio
- + Quarto Markdown
- + Revealjs Presentation Format
-- GitHub Pages
+-   R Studio
+-   Quarto Markdown
+-   Revealjs Presentation Format
+-   GitHub Pages
 
-::: {.notes}
+::: notes
 :::
 
 ## References {visibility="hidden"}
 
-:::{#refs}
+::: {#refs}
 :::
-
-
